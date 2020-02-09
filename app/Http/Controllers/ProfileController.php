@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Currency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use Alert;
 
-class CurrencyController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        $curr = Currency::orderBy('id', 'DESC')->get();
-        return view('app.currency.index', compact('curr'));
+        $user = User::find(Auth::user()->id);
+        return view('app.profile.index', compact('user'));        
     }
 
     /**
@@ -34,22 +36,18 @@ class CurrencyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $r)
+    public function store(Request $request)
     {
-        $curr = new Currency;
-        $curr->currency = $r->input('currency');
-        $curr->save();
-        alert()->success('Success', 'Data successfully added');
-        return redirect()->route('currencies.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Currency  $currency
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Currency $currency)
+    public function show($id)
     {
         //
     }
@@ -57,10 +55,10 @@ class CurrencyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Currency  $currency
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Currency $currency)
+    public function edit($id)
     {
         //
     }
@@ -69,29 +67,38 @@ class CurrencyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Currency  $currency
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $r, $id)
     {
-        $curr = Currency::find($id);
-        $curr->currency = $r->input('currency');
-        $curr->save();
+        $u = User::find($id);
+        $u->name = $r->input("name");
+        $u->alamat = $r->input("alamat");
+        if (!empty($r->input("password"))) {
+            $u->password = bcrypt(($r->input("password")));
+        }
+        $u->toko_id = 1;
+        $photo = $r->file('photo');
+        if (!empty($photo)) {
+            $destinationPath = public_path('image/upload/profile'); // upload path
+            $profilephoto = uniqid() . "." . $photo->getClientOriginalName();
+            $photo->move($destinationPath, $profilephoto);
+            $u->photo = $profilephoto;
+        }
+        $u->save();
         alert()->success('Success', 'Data successfully updated');
-        return redirect()->route('currencies.index');
+        return redirect()->route('profile.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Currency  $currency
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $curr = Currency::find($id);
-        $curr->delete();
-        alert()->success('Success', 'Data successfully deleted');
-        return redirect()->route('currencies.index');
+        //
     }
 }

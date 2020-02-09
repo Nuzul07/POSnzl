@@ -86,7 +86,8 @@ class InformasiTokoController extends Controller
         }
         
         $u->save();
-        return redirect()->route('informasiToko.index')->with('alertUpdate', $r->input('nama'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('informasiToko.index');
     }
 
     /**

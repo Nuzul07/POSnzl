@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use App\InformasiToko;
+use PDF;
 
 class UserController extends Controller
 {
@@ -60,7 +60,8 @@ class UserController extends Controller
             $u->photo = $profilephoto;
         }
         $u->save();
-        return redirect()->route('users.index')->with('alertStore', $r->input('name'));
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -114,7 +115,8 @@ class UserController extends Controller
             $u->photo = $profilephoto;
         }
         $u->save();
-        return redirect()->route('users.index')->with('alertUpdate', $r->input('name'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -126,8 +128,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        unlink(public_path() .  'image/upload/user/' . $user->photo);
+        unlink(public_path() .  '/image/upload/user/' . $user->photo);
         $user->delete();
+        alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('users.index');
     }
 
@@ -136,5 +139,11 @@ class UserController extends Controller
         $user = User::orderBy('id', 'DESC')->get();
         $info = InformasiToko::first();
         return view('app.user.print', compact('user','info'));
+    }
+
+    public function pdf()
+    {
+        $pdf = PDF::loadView('app.user.pdf');
+        return $pdf->download('ReportUser.pdf');
     }
 }

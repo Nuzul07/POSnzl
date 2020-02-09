@@ -39,7 +39,8 @@ class ProfitPercentageController extends Controller
         $pft = new ProfitPercentage;
         $pft->profit = $r->input('profit');
         $pft->save();
-        return redirect()->route('profit.index')->with('alertStore', $r->input('profit'));
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('profit.index');
     }
 
     /**
@@ -76,7 +77,8 @@ class ProfitPercentageController extends Controller
         $p = ProfitPercentage::find($id);
         $p->profit = $r->input('profit');
         $p->save();
-        return redirect()->route('profit.index')->with('alertUpdate', $r->input('profit'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('profit.index');
     }
 
     /**
@@ -89,6 +91,7 @@ class ProfitPercentageController extends Controller
     {
         $profit = ProfitPercentage::find($id);
         $profit->delete();
+        alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('profit.index');
     }
 }

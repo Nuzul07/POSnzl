@@ -4,15 +4,16 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
+    @include('sweetalert::alert')
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-7 align-self-center">
-                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Cards</h4>
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Users</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Users</li>
                         </ol>
                     </nav>
                 </div>
@@ -37,7 +38,7 @@
                                         <th>Email</th>
                                         <th>Address</th>
                                         <th>Level</th>
-                                        <th style="text-align:center">Action</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,6 +66,8 @@
                         <a href="{{ route('users.create') }}" class="btn btn-rounded btn-primary" style="color:#fff">Add</a>
                         &nbsp; &nbsp;
                         <a target="blank" href="{{ route('printUsers') }}" class="btn btn-rounded btn-primary"><i class="fas fa-print"></i> Print</a>
+                        <!-- &nbsp; &nbsp;
+                        <a href="{{ route('pdfuser') }}" class="btn btn-rounded btn-primary" style="color:#fff">Export PDF</a> -->
                     </div>
                 </div>
             </div>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
+use App\TranscationDetail;
+use App\Transaction;
 use App\InformasiToko;
+use Illuminate\Support\Facades\Auth;
 
-class EmptyProductController extends Controller
+class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,8 @@ class EmptyProductController extends Controller
      */
     public function index()
     {
-        $product = Product::where('stock', 0)->orderBy('id', 'DESC')->get();
-        return view('app.emptyProduct.index', compact('product'));
+        $checkout = TranscationDetail::where("user_id", Auth::user()->id)->orderBy("id", "DESC")->get();
+        return view('app.invoice.index', compact('checkout'));
     }
 
     /**
@@ -48,7 +50,12 @@ class EmptyProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $kode = TranscationDetail::where('kode_unik', $id)->first();
+        $tctn = Transaction::where('user_id', Auth::user()->id)->where("status", 1)->where('kode_unik', $kode->kode_unik)->orderBy("id", "DESC")->get();
+        $total_tctn = Transaction::where("user_id", Auth::user()->id)->where("status", 1)->where('kode_unik', $kode->kode_unik)->sum('sub_total');
+        $info = InformasiToko::first();
+        $checkout = TranscationDetail::where('kode_unik', $id)->first();
+        return view('app.invoice.show', compact('kode', 'tctn', 'total_tctn', 'info', 'checkout'));
     }
 
     /**
@@ -69,13 +76,9 @@ class EmptyProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $r, $id)
+    public function update(Request $request, $id)
     {
-        $p = Product::find($id);
-        $p->stock = $r->input('stock');
-        $p->save();
-        alert()->success('Success', 'Data successfully updated');
-        return redirect()->route('emptyProduct.index');
+        //
     }
 
     /**
@@ -91,8 +94,8 @@ class EmptyProductController extends Controller
 
     public function print()
     {
-        $product = Product::where('stock', 0)->orderBy('id', 'DESC')->get();
+        $checkout = TranscationDetail::where("user_id", Auth::user()->id)->orderBy("id", "DESC")->get();
         $info = InformasiToko::first();
-        return view('app.emptyProduct.print', compact('product','info'));
+        return view('app.invoice.print', compact('checkout','info'));
     }
 }

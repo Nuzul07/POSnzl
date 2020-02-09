@@ -39,7 +39,8 @@ class UnitController extends Controller
         $u = new Unit;
         $u->unit = $r->input('unit');
         $u->save();
-        return redirect()->route('units.index')->with('alertStore', $r->input('unit'));
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('units.index');
     }
 
     /**
@@ -76,7 +77,8 @@ class UnitController extends Controller
         $u = Unit::find($id);
         $u->unit = $r->input('unit');
         $u->save();
-        return redirect()->route('units.index')->with('alertUpdate', $r->input('unit'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('units.index');
     }
 
     /**
@@ -89,6 +91,7 @@ class UnitController extends Controller
     {
         $unit = Unit::find($id);
         $unit->delete();
+        alert()->success('Success', 'Data successfully deleted');
     return redirect()->route('units.index');
     }
 }

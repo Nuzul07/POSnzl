@@ -4,6 +4,7 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
+    @include('sweetalert::alert')
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-7 align-self-center">

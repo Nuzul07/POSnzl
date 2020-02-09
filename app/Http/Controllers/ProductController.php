@@ -72,7 +72,8 @@ class ProductController extends Controller
         }
 
         $p->save();
-        return redirect()->route('product.index')->with('alertStore', $r->input('name'));
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -84,7 +85,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $p = Product::find($id);
-        return response()->json($id);
+        return response()->json($p);
     }
 
     /**
@@ -114,8 +115,7 @@ class ProductController extends Controller
     public function update(Request $r, $id)
     {
         $p = Product::find($id);
-        $barcode = rand(0, PHP_INT_MAX);
-        $p->barcode = $barcode;
+        $p->barcode = $r->input('barcode');
         $p->category_id = $r->input('category_id');
         $p->currency_id = $r->input('currency_id');
         $p->unit_id = $r->input('unit_id');
@@ -138,7 +138,8 @@ class ProductController extends Controller
         }
 
         $p->save();
-        return redirect()->route('product.index')->with('alertUpdate', $r->input('name'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -151,6 +152,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('product.index'); 
     }
 }

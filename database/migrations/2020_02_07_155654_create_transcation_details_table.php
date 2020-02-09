@@ -20,6 +20,7 @@ class CreateTranscationDetailsTable extends Migration
             $table->bigInteger('pay');
             $table->bigInteger('kembalian');
             $table->string('metode_pay');
+            $table->string('kode_unik');
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");

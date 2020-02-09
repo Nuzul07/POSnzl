@@ -4,15 +4,16 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
+    @include('sweetalert::alert')
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-7 align-self-center">
-                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Cards</h4>
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Store Information</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Store Information</li>
                         </ol>
                     </nav>
                 </div>
@@ -49,7 +50,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="card border-primary">
                         <div class="card-header bg-primary">
-                            <h4 class="mb-0 text-white">Store Information</h4>
+                            <h4 class="mb-0 text-white">Store Data</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-body">

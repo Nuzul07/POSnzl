@@ -40,7 +40,8 @@ class PpnController extends Controller
         $ppn->stok_minimum = $r->input('stok_minimum');
         $ppn->ppn = $r->input('ppn');
         $ppn->save();
-        return redirect()->route('ppn.index')->with('alertStore');
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('ppn.index');
     }
 
     /**
@@ -78,7 +79,8 @@ class PpnController extends Controller
         $ppn->stok_minimum = $r->input('stok_minimum');
         $ppn->ppn = $r->input('ppn');
         $ppn->save();
-        return redirect()->route('ppn.index')->with('alertUpdate');
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('ppn.index');
     }
 
     /**
@@ -91,6 +93,7 @@ class PpnController extends Controller
     {
         $ppn = Ppn::find($id);
         $ppn->delete();
+        alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('ppn.index');
     }
 }

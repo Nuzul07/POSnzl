@@ -39,7 +39,8 @@ class CategoryController extends Controller
         $category = new Category();
         $category->category = $r->input('category');
         $category->save();
-        return redirect()->route('category.index')->with('alertStore', $r->input('category'));
+        alert()->success('Success', 'Data successfully added');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -76,7 +77,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->category = $r->input('category');
         $category->save();
-        return redirect()->route('category.index')->with('alertUpdate', $r->input('category'));
+        alert()->success('Success', 'Data successfully updated');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -89,6 +91,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->route('category.index')->with('alertUpdate');
+        alert()->success('Success', 'Data successfully deleted');
+        return redirect()->route('category.index');
     }
 }

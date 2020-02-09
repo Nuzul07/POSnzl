@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('jumlah');
             $table->bigInteger('sub_total');
+            $table->string('kode_unik');
             $table->integer('status')->default(0);
             $table->timestamps();
 

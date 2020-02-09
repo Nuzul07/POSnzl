@@ -72,7 +72,7 @@
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">{{Auth::user()->name}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
                                     My Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
@@ -98,7 +98,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('home') }}" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
                         @if (Auth::user()->level_id == 1)
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Management</span></li>
@@ -128,9 +128,9 @@
                                 <li class="sidebar-item"><a href="{{ route('product.index') }}" class="sidebar-link"><span class="hide-menu">All Product
                                         </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="ui-modals.html" class="sidebar-link"><span class="hide-menu">Report Product IN</span></a>
+                                <li class="sidebar-item"><a href="{{ route('productIn.index') }}" class="sidebar-link"><span class="hide-menu">Report Product IN</span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="ui-tab.html" class="sidebar-link"><span class="hide-menu">Empty stock</span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('emptyProduct.index') }}" class="sidebar-link"><span class="hide-menu">Empty stock</span></a></li>
                             </ul>
                         </li>
                         @endif
@@ -138,10 +138,10 @@
                         @if (Auth::user()->level_id == 3 || \Auth::user()->level_id == 1)
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Transaction</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-register1.html" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span class="hide-menu">Transaction
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('transaction.index') }}" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span class="hide-menu">Transaction
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-register1.html" aria-expanded="false"><i class="fas fa-history"></i><span class="hide-menu">Transaction History
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('invoice.index') }}" aria-expanded="false"><i class="fas fa-history"></i><span class="hide-menu">Transaction History
                                 </span></a>
                         </li>
                         @endif
