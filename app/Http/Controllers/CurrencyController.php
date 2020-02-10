@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
+use PDF;
 use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
@@ -93,5 +94,11 @@ class CurrencyController extends Controller
         $curr->delete();
         alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('currencies.index');
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.currency.pdf');
+        return $pdf->download('ReportCurrency.pdf');
     }
 }

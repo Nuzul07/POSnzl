@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Unit;
 use Illuminate\Http\Request;
+use PDF;
+use App\InformasiToko;
 
 class UnitController extends Controller
 {
@@ -93,5 +95,12 @@ class UnitController extends Controller
         $unit->delete();
         alert()->success('Success', 'Data successfully deleted');
     return redirect()->route('units.index');
+    }
+
+    public function pdf()
+    {
+        $info = InformasiToko::first();
+        $pdf = PDf::loadView('app.unit.pdf');
+        return $pdf->download('ReportUnit.pdf');
     }
 }

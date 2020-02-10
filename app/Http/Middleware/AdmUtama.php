@@ -16,7 +16,7 @@ class AdmUtama
     public function handle($request, Closure $next)
     {
         if (\Auth::user()->level_id != "1") {
-            abort(404);
+            abort(403);
         }
         return $next($request);
     }

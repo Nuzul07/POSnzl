@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\InformasiToko;
+use PDF;
 
 class EmptyProductController extends Controller
 {
@@ -89,10 +90,9 @@ class EmptyProductController extends Controller
         //
     }
 
-    public function print()
+    public function pdf()
     {
-        $product = Product::where('stock', 0)->orderBy('id', 'DESC')->get();
-        $info = InformasiToko::first();
-        return view('app.emptyProduct.print', compact('product','info'));
+        $pdf = PDf::loadView('app.emptyProduct.pdf');
+        return $pdf->download('ReportEmptyProduct.pdf');
     }
 }

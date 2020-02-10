@@ -9,6 +9,7 @@ use App\Currency;
 use App\ProfitPercentage;
 use App\Ppn;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -47,7 +48,7 @@ class ProductController extends Controller
     public function store(Request $r)
     {
         $p = new Product;
-        $barcode = rand(0, PHP_INT_MAX);
+        $barcode = rand(1, 100000000);
         $p->barcode = $barcode;
         $p->category_id = $r->input('category_id');
         $p->currency_id = $r->input('currency_id');
@@ -154,5 +155,11 @@ class ProductController extends Controller
         $product->delete();
         alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('product.index'); 
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.product.pdf');
+        return $pdf->download('ReportProduct.pdf');
     }
 }

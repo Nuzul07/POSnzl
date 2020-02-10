@@ -1,84 +1,184 @@
-<!DOCTYPE html>
+<link href="{{ asset('css-error/404.css') }}" rel="stylesheet">
 
-<html lang="en">
-
-<head>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-
-    <style type="text/css">
-        body {
-
-            margin-top: 150px;
-
-            background-color: #C4CCD9;
-
-        }
-
-        .error-main {
-
-            background-color: #fff;
-
-            box-shadow: 0px 10px 10px -10px #5D6572;
-
-        }
-
-        .error-main h1 {
-
-            font-weight: bold;
-
-            color: #444444;
-
-            font-size: 100px;
-
-            text-shadow: 2px 4px 5px #6E6E6E;
-
-        }
-
-        .error-main h6 {
-
-            color: #42494F;
-
-        }
-
-        .error-main p {
-
-            color: #9897A0;
-
-            font-size: 14px;
-
-        }
-    </style>
-
-</head>
-
-<body>
-
-    <div class="container">
-
-        <div class="row text-center">
-
-            <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12 p-3 error-main">
-
-                <div class="row">
-
-                    <div class="col-lg-8 col-12 col-sm-10 offset-lg-2 offset-sm-1">
-
-                        <h1 class="m-0">404</h1>
-
-                        <h6>Page not found</h6>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+<div class="scenery">
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
     </div>
-
-</body>
-</html>
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+    <div class="girl">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="legs"></div>
+    </div>
+    <div class="title">
+        <h1><span>4</span>
+            <div class="square">
+                <div class="light light1"></div>
+                <div class="light light2"></div>
+                <div class="light light3"></div>
+                <div class="light light4"></div>
+                <div class="shadow shadow1"></div>
+                <div class="shadow shadow2"></div>
+                <ul class="stairs1">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="stairs2">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="stairs3">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="stairs4">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div><span>4</span>
+        </h1>
+    </div>
+    <div class="message">
+        <h2>Oops! Looks like you got lost</h2>
+    </div>
+    <div class="action">
+        <a href="{{ url()->previous() }}">Take me back</a>
+    </div>
+</div>

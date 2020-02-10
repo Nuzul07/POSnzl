@@ -11,8 +11,8 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Product In</li>
                         </ol>
                     </nav>
                 </div>
@@ -45,18 +45,19 @@
                                         <td>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                 $p->barcode, 'C39')}}" height="20" width="100">
+                                                    $p->barcode, 'C39')}}" height="20" width="100">
                                                 <span class="text-barcode">{{ $p->barcode }}</span>
                                             </div>
                                         </td>
                                         <td>{{ $p->name }}</td>
-                                        <td>{{ $p->category->id }}</td>
+                                        <td>{{ $p->category->category }}</td>
                                         <td>{{ $p->stock }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
+                        <a href="{{ route('pdfproductIn') }}" class="btn btn-rounded btn-primary" style="color:#fff"><i class="far fa-file-pdf"></i> Export</a>
                     </div>
                 </div>
             </div>

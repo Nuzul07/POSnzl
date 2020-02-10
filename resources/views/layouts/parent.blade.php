@@ -67,7 +67,7 @@
                                 @if (!empty(Auth::user()->photo))
                                 <img src="{{ asset('image/upload/user/'.Auth::user()->photo) }}" alt="user" class="rounded-circle" width="35">
                                 @else
-                                <img src="{{ asset('Adminmart-lite-master/src/assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle" width="40">
+                                <img src="{{ asset('image/upload/user/avatar.png') }}" alt="user" class="rounded-circle" width="40">
                                 @endif
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">{{Auth::user()->name}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
