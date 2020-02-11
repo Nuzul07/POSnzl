@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use PDF;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -93,5 +94,11 @@ class CategoryController extends Controller
         $category->delete();
         alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('category.index');
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.category.pdf');
+        return $pdf->download('ReportCategory.pdf');
     }
 }

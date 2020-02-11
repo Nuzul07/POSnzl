@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">Currency</li>
                         </ol>
                     </nav>
@@ -59,6 +59,8 @@
                             </table>
                         </div>
                         <a href="#" class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#modalCreate" style="color:#fff">Add</a>
+                        &nbsp; &nbsp;
+                        <a href="{{ route('pdfcurrency') }}" class="btn btn-rounded btn-primary" style="color:#fff"><i class="far fa-file-pdf"></i> Export</a>
                     </div>
                 </div>
             </div>

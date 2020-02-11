@@ -8,12 +8,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-7 align-self-center">
-                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Products In</h4>
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Empty Stock</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Empty Stock</li>
                         </ol>
                     </nav>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-12">
                 <div class="card border-primary">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-0 text-white">Product In Data</h4>
+                        <h4 class="mb-0 text-white">Empty Stock Data</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -47,7 +47,7 @@
                                         <td>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                 $p->barcode, 'C39')}}" height="20" width="100">
+                                                 $p->barcode, 'C39')}}" height="40" width="180">
                                                 <span class="text-barcode">{{ $p->barcode }}</span>
                                             </div>
                                         </td>
@@ -60,6 +60,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="{{ route('pdfemptyProduct') }}" class="btn btn-rounded btn-primary" style="color:#fff"><i class="far fa-file-pdf"></i> Export</a>
                     </div>
                 </div>
             </div>

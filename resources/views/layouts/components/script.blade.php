@@ -24,4 +24,5 @@
     <script src="{{ asset('Adminmart-lite-master/src/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
     <script src="{{ asset('js/uploadpreview.js') }}"></script>
     <script src="{{ asset('js/modalDestroy.js') }}"></script>
+    <script src="{{ asset('js/realtime.js') }}"></script>
     @yield("scriptCustom")

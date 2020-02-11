@@ -32,9 +32,9 @@
                     <div class="navbar-brand">
                         <!-- Logo icon -->
                         <a href="index.html">
-                            <img src="{{ asset('image/upload/toko/logo.png') }}" alt="homepage" style="width: 30%; height: 30%; border-radius:50%;">
-                            &nbsp;
-                            <span class="page-title text-truncate text-dark font-weight-medium mb-1">NzlPOS</span>
+                            <center>
+                            <img src="{{ asset('image/upload/toko/logo.png') }}" alt="homepage" style="width: 30%; height: 30%; border-radius:50%; border: 4px solid;">
+                            </center>
                         </a>
                     </div>
                     <!-- ============================================================== -->
@@ -64,10 +64,11 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="ml-2 d-none d-lg-inline-block text-dark" id="date_time"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 @if (!empty(Auth::user()->photo))
                                 <img src="{{ asset('image/upload/user/'.Auth::user()->photo) }}" alt="user" class="rounded-circle" width="35">
                                 @else
-                                <img src="{{ asset('Adminmart-lite-master/src/assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle" width="40">
+                                <img src="{{ asset('image/upload/user/avatar.png') }}" alt="user" class="rounded-circle" width="40">
                                 @endif
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">{{Auth::user()->name}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
@@ -128,7 +129,7 @@
                                 <li class="sidebar-item"><a href="{{ route('product.index') }}" class="sidebar-link"><span class="hide-menu">All Product
                                         </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="{{ route('productIn.index') }}" class="sidebar-link"><span class="hide-menu">Report Product IN</span></a>
+                                <li class="sidebar-item"><a href="{{ route('productIn.index') }}" class="sidebar-link"><span class="hide-menu">Report Product In</span></a>
                                 </li>
                                 <li class="sidebar-item"><a href="{{ route('emptyProduct.index') }}" class="sidebar-link"><span class="hide-menu">Empty stock</span></a></li>
                             </ul>
@@ -163,6 +164,9 @@
         </div>
     </div>
     @include("layouts.components.script")
+    <script type="text/javascript">
+        window.onload = date_time('date_time');
+    </script>
 </body>
 
 </html>

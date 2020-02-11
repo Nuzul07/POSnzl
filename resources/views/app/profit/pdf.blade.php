@@ -41,31 +41,25 @@
         <img src="./image/upload/toko/logo.png" style="width:100px; border-radius:50%; height: 80px;">
     </center>
     <h5 style="text-align: center;">Jl. Mayjen Sutoyo, RW.9, Cawang, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13630</h5>
-        <br>
-        <h2 style="text-align: center">Report User Data</h2>
-        <h5 style="text-align: right">Date : @include('function.tglIndo'){{ hari_ini(date("D")) }}, {{ tgl_indo(date("Y-m-d")) }}</h5>
+    <br>
+    <h2 style="text-align: center">Report Profit Data</h2>
+    <h5 style="text-align: right">Date : @include('function.tglIndo'){{ hari_ini(date("D")) }}, {{ tgl_indo(date("Y-m-d")) }}</h5>
         <hr>
         <table>
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Level</th>
+                    <th>Profit Percentage(%)</th>
                 </tr>
             </thead>
             <tbody>
                 @php
-                $l = \App\User::all();
+                $l = \App\ProfitPercentage::all();
                 @endphp
                 @foreach($l as $q)
                 <tr>
                     <th>{{$q->id}}</th>
-                    <td>{{$q->name}}</td>
-                    <td>{{$q->email}}</td>
-                    <td>{!!$q->alamat!!}</td>\
-                    <td>{{ $q->level->name }}</td>
+                    <td>{{$q->profit}}</td>
                     @endforeach
             </tbody>
         </table>

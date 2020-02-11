@@ -12,8 +12,8 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Product</li>
                         </ol>
                     </nav>
                 </div>
@@ -48,7 +48,7 @@
                                         <td>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                 $p->barcode, 'C39')}}" height="20" width="100">
+                                                 $p->barcode, 'C39')}}" height="40" width="180">
                                                 <span class="text-barcode">{{ $p->barcode }}</span>
                                             </div>
                                         </td>
@@ -64,6 +64,8 @@
                             </table>
                         </div>
                         <a href="{{ route('product.create') }}" class="btn btn-rounded btn-primary" style="color:#fff">Add</a>
+                        &nbsp;&nbsp;
+                        <a href="{{ route('pdfproduct') }}" class="btn btn-rounded btn-primary" style="color:#fff"><i class="far fa-file-pdf"></i> Export</a>
                     </div>
                 </div>
             </div>

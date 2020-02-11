@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProfitPercentage;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProfitPercentageController extends Controller
 {
@@ -93,5 +94,11 @@ class ProfitPercentageController extends Controller
         $profit->delete();
         alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('profit.index');
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.profit.pdf');
+        return $pdf->download('ReportProfit.pdf');
     }
 }

@@ -40,18 +40,21 @@ Route::group(["middleware" => ["admgudang","auth"]], function () {
 
 Route::group(["middleware" => ["kasir","auth"]], function () {
     Route::resource('transaction', 'TransactionController');
+    Route::resource("product", "ProductController");
     Route::get('clean', 'TransactionController@clean')->name('clean');
     Route::resource('transactionDetail', 'TranscationDetailController');
     Route::resource('invoice', 'InvoiceController');
 });
 
-Route::group(["prefix" => "print"], function () {
-    Route::get('users', 'UserController@print')->name("printUsers");
-    Route::get('kategoriProduk', 'CategoryController@print')->name("printKategoriProduk");
-    Route::get('produkMasuk', 'ProdukInController@print')->name("printProdukMasuk");
-    Route::get('produkKosong', 'EmptyProductController@print')->name("printProdukKosong");
-});
-
 Route::group(["prefix" => "export"], function () {
     Route::get('/pdfuser', 'UserController@pdf')->name('pdfuser');
+    Route::get('/pdfcategory', 'CategoryController@pdf')->name('pdfcategory');
+    Route::get('/pdfcurrency', 'CurrencyController@pdf')->name('pdfcurrency');
+    Route::get('/pdfunit', 'UnitController@pdf')->name('pdfunit');
+    Route::get('/pdfemptyProduct', 'EmptyProductController@pdf')->name('pdfemptyProduct');
+    Route::get('/pdfppn', 'PpnController@pdf')->name('pdfppn');
+    Route::get('/pdfproduct', 'ProductController@pdf')->name('pdfproduct');
+    Route::get('/pdfproductIn', 'ProductInController@pdf')->name('pdfproductIn');
+    Route::get('/pdfprofit', 'ProfitPercentageController@pdf')->name('pdfprofit');
+    Route::get('/pdfhistory', 'InvoiceController@pdf')->name('pdfhistory');
 });

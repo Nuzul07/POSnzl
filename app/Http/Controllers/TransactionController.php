@@ -58,7 +58,7 @@ class TransactionController extends Controller
         $tctn->jumlah = $r->input('jumlah');
         $tctn->user_id = Auth::user()->id;
         $tctn->status = 0;
-        $tctn->kode_unik = rand(0, PHP_INT_MAX);
+        $tctn->kode_unik = rand(0, 100000000);
         $tctn->sub_total = $r->input('jumlah') * $p_id->selling_price;
         $tctn->save();
         alert()->success('Success', 'Data successfully added');

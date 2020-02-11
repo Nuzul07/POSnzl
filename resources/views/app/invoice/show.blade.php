@@ -8,7 +8,8 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Transaction</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Transaction</a></li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">Checkout</li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">Invoice</li>
                         </ol>

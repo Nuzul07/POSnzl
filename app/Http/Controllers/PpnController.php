@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ppn;
 use Illuminate\Http\Request;
+use PDF;
 
 class PpnController extends Controller
 {
@@ -95,5 +96,11 @@ class PpnController extends Controller
         $ppn->delete();
         alert()->success('Success', 'Data successfully deleted');
         return redirect()->route('ppn.index');
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.ppn.pdf');
+        return $pdf->download('ReportPPN.pdf');
     }
 }

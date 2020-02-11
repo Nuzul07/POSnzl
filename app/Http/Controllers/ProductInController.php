@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use PDF;
 
 class ProductInController extends Controller
 {
@@ -82,5 +83,11 @@ class ProductInController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pdf()
+    {
+        $pdf = PDf::loadView('app.productIn.pdf');
+        return $pdf->download('ReportProductIn.pdf');
     }
 }

@@ -81,6 +81,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <label>Username</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="username" value="{{ $user->username }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <label>Password</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="password">

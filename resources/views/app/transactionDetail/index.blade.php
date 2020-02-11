@@ -9,7 +9,8 @@
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Transaction</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Dashboard</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Transaction</a></li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">Checkout</li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">Invoice</li>
                         </ol>
@@ -71,7 +72,7 @@
                                             <td>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                            $t->product->barcode, 'C39')}}" height="20" width="100">
+                                                            $t->product->barcode, 'C39')}}" height="40" width="180">
                                                     <span class="text-barcode">{{ $t->product->barcode }}</span>
                                                 </div>
                                             </td>
@@ -104,7 +105,6 @@
                         <hr>
                         <div class="invoice-buttons text-right">
                             <button class="btn btn-primary btn-icon icon-left" data-toggle="modal" data-target="#modalCreate"><i class="fas fa-credit-card"></i> Pembayaran</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i> Cancel</a>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ use App\TranscationDetail;
 use App\Transaction;
 use App\InformasiToko;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class InvoiceController extends Controller
 {
@@ -92,10 +93,9 @@ class InvoiceController extends Controller
         //
     }
 
-    public function print()
+    public function pdf()
     {
-        $checkout = TranscationDetail::where("user_id", Auth::user()->id)->orderBy("id", "DESC")->get();
-        $info = InformasiToko::first();
-        return view('app.invoice.print', compact('checkout','info'));
+        $pdf = PDf::loadView('app.invoice.pdf');
+        return $pdf->download('ReportHistoryTransaction.pdf');
     }
 }

@@ -54,7 +54,7 @@ class TranscationDetailController extends Controller
 
         $td->kembalian = $r->input('pay') - $r->input('total');
         $td->metode_pay = $r->input('metode_pay');
-        $kode_unik = rand(0, PHP_INT_MAX);
+        $kode_unik = rand(0, 100000000);
         $td->kode_unik = $kode_unik;
 
         $td->save();
