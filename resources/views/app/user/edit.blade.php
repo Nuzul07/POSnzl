@@ -34,9 +34,9 @@
                         <div class="card-body">
                             <div class="form-group">
                                 @if(!empty($user->photo))
-                                <img class="card-img-top img-fluid" src="{{ asset('image/upload/toko/'. $user->photo) }}" id="blah1" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="{{ asset('image/upload/user/'. $user->photo) }}" id="blah1">
                                 @else
-                                <img class="card-img-top img-fluid" src="{{ asset('image/upload/toko/noimage.png') }}" id="blah1" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="{{ asset('image/upload/user/noimage.png') }}" id="blah1">
                                 @endif
                                 <br>
                                 <br>

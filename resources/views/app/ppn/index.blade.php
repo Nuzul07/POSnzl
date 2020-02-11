@@ -103,7 +103,7 @@
                     {{ method_field('PUT') }}
                     <div class="modal-content">
                         <div class="modal-header modal-colored-header bg-primary">
-                            <h4 class="modal-title" id="primary-header-modalLabel">Add Currency
+                            <h4 class="modal-title" id="primary-header-modalLabel">Edit PPN
                             </h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
